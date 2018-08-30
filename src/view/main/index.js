@@ -7,6 +7,8 @@ import Box from 'grommet/components/Box';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { replace } from 'react-router-redux';
+import { bindActionCreators } from 'redux';
 /******************
  * Project import *
  ******************/
@@ -17,7 +19,8 @@ import {
 import {
   Home,
   Another,
-  NotFound
+  NotFound,
+  ErrorBoundary
 } from '../../component';
 /**
  * It renders the first view to be shown
@@ -37,16 +40,19 @@ class Main extends Component {
     return (
       <App
         centered={false}>
-        <Box
-          full={true}>
+        <ErrorBoundary
+          replace={this.props.replace}>
+          <Box
+            full={true}>
 
-          <Switch location={this.props.location}>
-            <Route exact path={HOME} render={this._renderHome}/>
-            <Route exact path={ANOTHER} render={this._renderAnother}/>
-            <Route render={this._renderNotFound}/>
-          </Switch>
+            <Switch location={this.props.location}>
+              <Route exact path={HOME} render={this._renderHome}/>
+              <Route exact path={ANOTHER} render={this._renderAnother}/>
+              <Route render={this._renderNotFound}/>
+            </Switch>
 
-        </Box>
+          </Box>
+        </ErrorBoundary>
       </App>
     );
   }
@@ -82,6 +88,11 @@ const mapStateToProps = state => ({
     .useCaseReducer.data,
 });
 
+const mapDispatchToProps = dispatch => bindActionCreators({
+  replace: replace,
+}, dispatch);
+
 export default withRouter(connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Main));
