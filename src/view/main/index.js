@@ -13,7 +13,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 /******************
  * Project import *
  ******************/
-import './fade.css';
+import './fadeRightToLeft.css';
 import {
   HOME,
   ANOTHER,
@@ -41,6 +41,7 @@ class Main extends Component {
 
     return (
       <App
+        id={'container'}
         centered={false}>
         <ErrorBoundary
           replace={this.props.replace}>
@@ -48,7 +49,7 @@ class Main extends Component {
             component={null}>
             <CSSTransition
               key={this.props.location.key}
-              classNames={'fade'}
+              classNames={'fade-right-to-left'}
               timeout={{
                 enter: 500,
                 exit: 500
@@ -88,6 +89,14 @@ class Main extends Component {
     return (
       <NotFound/>
     );
+  }
+  
+  componentDidMount() {
+    window.$('#container').niceScroll({
+      cursorborder: '1px solid #424242',
+      cursorcolor: '#424242',
+      cursorwidth: '5px',
+    });
   }
 }
 
