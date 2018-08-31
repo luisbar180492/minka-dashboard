@@ -1,17 +1,18 @@
 /***********************
  * Node modules import *
  ***********************/
-import React, { Component } from 'react';
+import React from 'react';
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
 /******************
  * Project import *
  ******************/
-import { TXT_1 } from '../../string';
+import BasisComponent from 'basisComponent';
+import { TXT_1 } from 'string';
 /**
  * It renders the notFound component
  */
-class NotFound extends Component {
+class NotFound extends BasisComponent {
 
   render() {
 

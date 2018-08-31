@@ -1,18 +1,19 @@
 /***********************
  * Node modules import *
  ***********************/
-import React, { Component } from 'react';
+import React from 'react';
 import Box from 'grommet/components/Box';
 import Button from 'grommet/components/Button';
 /******************
  * Project import *
  ******************/
-import { TXT_3 } from '../../string';
-import { HOME } from '../../config';
+import BasisComponent from 'basisComponent';
+import { TXT_3 } from 'string';
+import { HOME } from 'config';
 /**
  * It renders the another component
  */
-class Another extends Component {
+class Another extends BasisComponent {
   
   render() {
 

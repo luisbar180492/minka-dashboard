@@ -1,7 +1,7 @@
 /***********************
  * Node modules import *
  ***********************/
-import React, { PureComponent } from 'react';
+import React from 'react';
 import Box from 'grommet/components/Box';
 import Button from 'grommet/components/Button';
 import Heading from 'grommet/components/Heading';
@@ -13,13 +13,14 @@ import PropTypes from 'prop-types';
 /******************
  * Project import *
  ******************/
+import BasisComponent from 'basisComponent';
 import style from './style';
-import { TXT_4, TXT_5 } from '../../string';
-import { HOME } from '../../config';
+import { TXT_4, TXT_5 } from 'string';
+import { HOME } from 'config';
 /**
  * It catchs all errors
  */
-class ErrorBoundary extends PureComponent {
+class ErrorBoundary extends BasisComponent {
   
   constructor(props) {
     super(props);

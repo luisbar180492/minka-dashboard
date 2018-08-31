@@ -3,6 +3,8 @@ const TXT_1 = 'No se encontro el recurso :(';
 
 //Home
 const TXT_2 = 'NEXT';
+const TXT_6 = 'and this app is running over a desktop computer';
+const TXT_7 = 'and this app is running over a smartphone';
 
 //Another
 const TXT_3 = 'BACK';
@@ -17,4 +19,6 @@ export {
   TXT_3,
   TXT_4,
   TXT_5,
+  TXT_6,
+  TXT_7,
 };

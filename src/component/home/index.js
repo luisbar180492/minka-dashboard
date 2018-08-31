@@ -1,7 +1,7 @@
 /***********************
  * Node modules import *
  ***********************/
-import React, { Component } from 'react';
+import React from 'react';
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
 import Button from 'grommet/components/Button';
@@ -9,12 +9,13 @@ import PropTypes from 'prop-types';
 /******************
  * Project import *
  ******************/
-import { TXT_2 } from '../../string';
-import { ANOTHER } from '../../config';
+import BasisComponent from 'basisComponent';
+import { TXT_2, TXT_6, TXT_7 } from 'string';
+import { ANOTHER } from 'config';
 /**
  * It renders the home component
  */
-class Home extends Component {
+class Home extends BasisComponent {
   
   render() {
 
@@ -25,8 +26,17 @@ class Home extends Component {
         justify={'center'}
         align={'center'}
         colorIndex={'neutral-1'}>
-        <Heading>
+        
+        <Heading
+          align={'center'}
+          truncate={true}>
           {this.props.data}
+        </Heading>
+
+        <Heading
+          align={'center'}
+          truncate={true}>
+          {this.state.isSmartphone ? TXT_7 : TXT_6}
         </Heading>
 
         <Button

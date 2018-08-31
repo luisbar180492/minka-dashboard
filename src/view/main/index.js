@@ -1,7 +1,7 @@
 /***********************
  * Node modules import *
  ***********************/
-import React, { Component } from 'react';
+import React from 'react';
 import App from 'grommet/components/App';
 import Box from 'grommet/components/Box';
 import { Route, Switch } from 'react-router-dom';
@@ -14,20 +14,21 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
  * Project import *
  ******************/
 import './fadeRightToLeft.css';
+import BasisComponent from 'basisComponent';
 import {
   HOME,
   ANOTHER,
-} from '../../config';
+} from 'config';
 import {
   Home,
   Another,
   NotFound,
   ErrorBoundary
-} from '../../component';
+} from 'component';
 /**
  * It renders the first view to be shown
  */
-class Main extends Component {
+class Main extends BasisComponent {
   
   constructor(props) {
     super(props);
