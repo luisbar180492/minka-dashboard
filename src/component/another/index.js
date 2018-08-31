@@ -18,6 +18,7 @@ class Another extends Component {
 
     return (
       <Box
+        {...this.props}
         flex={true}
         justify={'center'}
         align={'center'}

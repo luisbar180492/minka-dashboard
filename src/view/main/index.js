@@ -9,9 +9,11 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { replace } from 'react-router-redux';
 import { bindActionCreators } from 'redux';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 /******************
  * Project import *
  ******************/
+import './fade.css';
 import {
   HOME,
   ANOTHER,
@@ -42,16 +44,25 @@ class Main extends Component {
         centered={false}>
         <ErrorBoundary
           replace={this.props.replace}>
-          <Box
-            full={true}>
-
-            <Switch location={this.props.location}>
-              <Route exact path={HOME} render={this._renderHome}/>
-              <Route exact path={ANOTHER} render={this._renderAnother}/>
-              <Route render={this._renderNotFound}/>
-            </Switch>
-
-          </Box>
+          <TransitionGroup
+            component={null}>
+            <CSSTransition
+              key={this.props.location.key}
+              classNames={'fade'}
+              timeout={{
+                enter: 500,
+                exit: 500
+              }}>
+              <Box
+                full={true}>
+                <Switch location={this.props.location}>
+                  <Route exact path={HOME} render={this._renderHome}/>
+                  <Route exact path={ANOTHER} render={this._renderAnother}/>
+                  <Route render={this._renderNotFound}/>
+                </Switch>
+              </Box>
+            </CSSTransition>
+          </TransitionGroup>
         </ErrorBoundary>
       </App>
     );
