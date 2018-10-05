@@ -1,6 +1,6 @@
-/***********************
- * Node modules import *
- ***********************/
+/********************
+ * From third party *
+ ********************/
 import React from 'react';
 import Box from 'grommet/components/Box';
 import Button from 'grommet/components/Button';
@@ -10,9 +10,9 @@ import Accordion from 'grommet/components/Accordion';
 import AccordionPanel from 'grommet/components/AccordionPanel';
 import Paragraph from 'grommet/components/Paragraph';
 import PropTypes from 'prop-types';
-/******************
- * Project import *
- ******************/
+/****************
+ * From project *
+ ****************/
 import BasisComponent from 'basisComponent';
 import style from './style';
 import { TXT_4, TXT_5 } from 'string';

@@ -1,11 +1,9 @@
-import Home from './home/index';
-import Another from './another/index';
-import NotFound from './notFound/index';
+import Wrapper from './wrapper/index';
 import ErrorBoundary from './errorBoundary/index';
+import TransitionAnimator from './transitionAnimator/index';
 
 export {
-  Home,
-  Another,
-  NotFound,
+  Wrapper,
   ErrorBoundary,
+  TransitionAnimator,
 };

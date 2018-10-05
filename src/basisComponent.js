@@ -1,6 +1,6 @@
-/***********************
- * Node modules import *
- ***********************/
+/********************
+ * From third party *
+ ********************/
 import { PureComponent } from 'react';
 import Responsive from 'grommet/utils/Responsive';
 /**

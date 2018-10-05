@@ -1,12 +1,12 @@
-/***********************
- * Node modules import *
- ***********************/
+/********************
+ * From third party *
+ ********************/
 import React from 'react';
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
-/******************
- * Project import *
- ******************/
+/****************
+ * From project *
+ ****************/
 import BasisComponent from 'basisComponent';
 import { TXT_1 } from 'string';
 /**

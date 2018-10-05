@@ -1,10 +1,10 @@
-/***********************
- * Node modules import *
- ***********************/
+/********************
+ * From third party *
+ ********************/
 import { combineReducers } from 'redux';
-/******************
- * Project import *
- ******************/
+/****************
+ * From project *
+ ****************/
 import defaultReducer from './default/reducer';
 
 export default combineReducers({

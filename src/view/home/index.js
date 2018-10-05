@@ -1,14 +1,15 @@
-/***********************
- * Node modules import *
- ***********************/
+/********************
+ * From third party *
+ ********************/
 import React from 'react';
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
 import Button from 'grommet/components/Button';
-import PropTypes from 'prop-types';
-/******************
- * Project import *
- ******************/
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
+/****************
+ * From project *
+ ****************/
 import BasisComponent from 'basisComponent';
 import { TXT_2, TXT_6, TXT_7 } from 'string';
 import { ANOTHER } from 'config';
@@ -21,11 +22,9 @@ class Home extends BasisComponent {
 
     return (
       <Box
-        {...this.props}
         flex={true}
         justify={'center'}
-        align={'center'}
-        colorIndex={'neutral-1'}>
+        align={'center'}>
         
         <Heading
           align={'center'}
@@ -55,8 +54,14 @@ class Home extends BasisComponent {
   }
 }
 
-Home.propTypes = {
-  data: PropTypes.string,
-};
+const mapStateToProps = state => ({
+  data: state
+    .rootReducer
+    .dataReducer
+    .defaultReducer
+    .useCaseReducer.data,
+});
 
-export default Home;
+export default withRouter(connect(
+  mapStateToProps,
+)(Home));

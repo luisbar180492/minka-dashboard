@@ -1,13 +1,13 @@
-/***********************
- * Node modules import *
- ***********************/
+/********************
+ * From third party *
+ ********************/
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { routerMiddleware, routerReducer } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import createHistory from 'history/createBrowserHistory';
-/******************
- * Project import *
- ******************/
+/****************
+ * From project *
+ ****************/
 import rootReducer from './reducer';
 
 //Array for managing the locations, current locations and navigation
