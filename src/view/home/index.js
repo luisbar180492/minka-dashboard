@@ -5,8 +5,8 @@ import React from 'react';
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
 import Button from 'grommet/components/Button';
-import List from 'grommet/components/List';
-import ListItem from 'grommet/components/ListItem';
+import Paragraph from 'grommet/components/Paragraph';
+import Spinning from 'grommet/components/icons/Spinning';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 /****************
@@ -65,20 +65,36 @@ class Home extends BasisComponent {
 
         <Button
           label={TXT_10}
-          accent={false}
+          accent={true}
           critical={false}
-          primary={true}
+          primary={false}
           secondary={false}
           plain={false}
           fill={false}
           type={'button'}
-          onClick={this._onFetchPokemonsButtonClicked}/>
+          onClick={this._onFetchPokemonsButtonClicked}
+          icon={this.props.pokemonsAreFetching ? <Spinning size={'small'}/> : null}/>
 
-        <List>
-          {this.props.pokemons.map(this._renderPokemonName)}
-        </List>
+        <Box
+          basis={'1/3'}>
+          <Paragraph
+            id={'paragraph'}
+            align={'center'}
+            size={'large'}>
+            {this.props.pokemons.map(this._renderPokemonName)}
+          </Paragraph>
+        </Box>
       </Box>
     );
+  }
+
+  componentDidMount() {
+    super.componentDidMount();
+    window.$('#paragraph').niceScroll({
+      cursorborder: '1px solid #424242',
+      cursorcolor: '#424242',
+      cursorwidth: '5px',
+    });
   }
 
   onFetchPokemonsButtonClicked() {
@@ -87,12 +103,7 @@ class Home extends BasisComponent {
 
   renderPokemonName(item, index) {
 
-    return (
-      <ListItem
-        key={item.name}>
-        {item.name}
-      </ListItem>
-    );
+    return (item.name + '\n');
   }
 }
 
@@ -105,6 +116,12 @@ const mapStateToProps = state => ({
     .rootReducer
     .stateReducer
     .fetchPokemonsReducer.pokemons,
+  pokemonsAreFetching: state
+    .rootReducer
+    .stateReducer
+    .fetchPokemonsReducer
+    .statusOfFetchingPokemons
+    .isFetching,
 });
 
 const mapDispatchToProps = dispatch => ({
