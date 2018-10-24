@@ -5,8 +5,8 @@ import { combineReducers } from 'redux';
 /****************
  * From project *
  ****************/
-import defaultReducer from './default/reducer';
+import fetchPokemonsReducer from './fetchPokemons/reducer';
 
 export default combineReducers({
-  defaultReducer,
+  fetchPokemonsReducer,
 });

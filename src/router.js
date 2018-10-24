@@ -13,7 +13,7 @@ import { HOME, ANOTHER } from 'config';
  * It has all routes and manages them
  */
 class Router extends BasisComponent {
-  
+
   constructor(props) {
     super(props);
     //Listeners
@@ -32,9 +32,9 @@ class Router extends BasisComponent {
       </Switch>
     );
   }
-  
+
   renderHome() {
-    
+
     return (
       <Home
         data={this.props.data}/>
@@ -42,14 +42,14 @@ class Router extends BasisComponent {
   }
 
   renderAnother() {
-    
+
     return (
       <Another/>
     );
   }
-  
+
   renderNotFound() {
-    
+
     return (
       <NotFound/>
     );

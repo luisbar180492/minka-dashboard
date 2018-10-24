@@ -5,6 +5,7 @@ const TXT_1 = 'No se encontro el recurso :(';
 const TXT_2 = 'NEXT';
 const TXT_6 = 'and this app is running over a desktop computer';
 const TXT_7 = 'and this app is running over a smartphone';
+const TXT_10 = 'FETCH POKEMONS';
 
 //Another
 const TXT_3 = 'BACK';
@@ -33,4 +34,5 @@ export {
   TXT_7,
   TXT_8,
   TXT_9,
+  TXT_10,
 };

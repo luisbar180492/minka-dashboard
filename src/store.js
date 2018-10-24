@@ -3,19 +3,21 @@
  ********************/
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { routerMiddleware, routerReducer } from 'react-router-redux';
-import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 import createHistory from 'history/createBrowserHistory';
 /****************
  * From project *
  ****************/
 import rootReducer from './reducer';
+import sagas from './state/sagas';
 
 //Array for managing the locations, current locations and navigation
 export const history = createHistory();
+const sagaMiddleware = createSagaMiddleware();
 
 //Array for adding middlewares to the store
 const middleware = [
-  thunk,
+  sagaMiddleware,
   routerMiddleware(history),
 ];
 
@@ -44,5 +46,7 @@ const store = createStore(
   }),
   composedEnhancers
 );
+
+sagaMiddleware.run(sagas);
 
 export default store;
