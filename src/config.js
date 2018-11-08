@@ -1,6 +1,6 @@
 //View ids
+const LOGIN = '/login';
 const HOME = '/';
-const ANOTHER = '/another';
 
 //Endpoints
 const URL = 'https://pokeapi.co/api/';
@@ -9,8 +9,8 @@ const URL_PLUS_VERSION = `${URL}${VERSION}`;
 const POKEMON_URI = '/pokemon/';
 
 export {
+  LOGIN,
   HOME,
-  ANOTHER,
   URL_PLUS_VERSION,
   POKEMON_URI,
 };

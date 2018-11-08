@@ -3,6 +3,7 @@
  ********************/
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { routerMiddleware, routerReducer } from 'react-router-redux';
+import { sessionService } from 'redux-react-session';
 import createSagaMiddleware from 'redux-saga';
 import createHistory from 'history/createBrowserHistory';
 /****************
@@ -47,6 +48,7 @@ const store = createStore(
   composedEnhancers
 );
 
+sessionService.initSessionService(store);
 sagaMiddleware.run(sagas);
 
 export default store;

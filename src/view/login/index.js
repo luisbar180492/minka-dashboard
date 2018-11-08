@@ -4,14 +4,12 @@
 import React from 'react';
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
 /****************
  * From project *
  ****************/
 import BasisComponent from 'basisComponent';
 
-class Home extends BasisComponent {
+class Login extends BasisComponent {
 
   render() {
 
@@ -24,17 +22,11 @@ class Home extends BasisComponent {
         <Heading
           align={'center'}
           truncate={true}>
-          {'HOME'}
+          {'LOGIN'}
         </Heading>
       </Box>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  state: state
-});
-
-export default withRouter(connect(
-  mapStateToProps,
-)(Home));
+export default Login;

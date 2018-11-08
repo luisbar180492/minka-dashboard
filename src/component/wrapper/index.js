@@ -24,7 +24,7 @@ class Wrapper extends BasisComponent {
         <ErrorBoundary
           replace={this.props.replace}>
           <TransitionAnimator
-            transitionKey={this.props.location.key}>
+            transitionKey={this.props.location.pathname}>
             <Box
               full={true}
               colorIndex={'neutral-1'}>

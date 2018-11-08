@@ -3,52 +3,48 @@
  ********************/
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 /****************
  * From project *
  ****************/
 import BasisComponent from 'basisComponent';
-import { Home, Another, NotFound } from 'view';
-import { HOME, ANOTHER } from 'config';
+import PrivateRoute from 'privateRoute';
+import { Login, Home, NotFound } from 'view';
+import { LOGIN, HOME } from 'config';
 /**
  * It has all routes and manages them
  */
 class Router extends BasisComponent {
 
-  constructor(props) {
-    super(props);
-    //Listeners
-    this._renderHome = this.renderHome.bind(this);
-    this._renderAnother = this.renderAnother.bind(this);
-    this._renderNotFound = this.renderNotFound.bind(this);
-  }
-
   render() {
+    const { checked, location, authenticated } = this.props;
 
     return (
-      <Switch location={this.props.location}>
-        <Route exact path={HOME} render={this._renderHome}/>
-        <Route exact path={ANOTHER} render={this._renderAnother}/>
-        <Route render={this._renderNotFound}/>
+      checked &&
+      <Switch location={location}>
+        <PrivateRoute exact path={HOME} component={this.renderHome} authenticated={authenticated}/>
+        <Route exact path={LOGIN} component={this.renderLogin}/>
+        <Route component={this.renderNotFound}/>
       </Switch>
     );
   }
 
-  renderHome() {
+  renderHome = () => {
 
     return (
-      <Home
-        data={this.props.data}/>
+      <Home/>
     );
   }
 
-  renderAnother() {
+  renderLogin = () => {
 
     return (
-      <Another/>
+      <Login/>
     );
   }
 
-  renderNotFound() {
+  renderNotFound = () => {
 
     return (
       <NotFound/>
@@ -56,4 +52,17 @@ class Router extends BasisComponent {
   }
 }
 
-export default Router;
+const mapStateToProps = (state) => ({
+  checked: state
+  .rootReducer
+  .sessionReducer
+  .checked,
+  authenticated: state
+  .rootReducer
+  .sessionReducer
+  .authenticated,
+});
+
+export default withRouter(connect(
+  mapStateToProps,
+)(Router));
