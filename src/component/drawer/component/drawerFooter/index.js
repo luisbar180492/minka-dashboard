@@ -11,8 +11,8 @@ import { replace } from 'react-router-redux'
 /****************
  * From project *
  ****************/
-import { LOGIN } from 'config';
-import { TXT_8 } from 'string';
+import { LOGIN } from 'common/config';
+import { TXT_8 } from 'common/string';
 import actionBuilder from 'common/actionBuilder';
 import { SIGN_OUT } from 'common/actions';
 

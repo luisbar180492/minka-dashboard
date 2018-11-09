@@ -9,9 +9,8 @@ import PropTypes from 'prop-types';
  * From project *
  ****************/
 import BasisComponent from 'basisComponent';
-import Router from 'router';
-import { ErrorBoundary, TransitionAnimator, Drawer } from 'component';
-import { HOME, ACCOUNT } from 'config';
+import { ErrorBoundary, TransitionAnimator, Drawer, Router } from 'component';
+import { HOME, ACCOUNT } from 'common/config';
 /**
  * Wrapper for whole the app
  */

@@ -9,9 +9,9 @@ import { withRouter } from 'react-router';
  * From project *
  ****************/
 import BasisComponent from 'basisComponent';
-import PrivateRoute from 'privateRoute';
+import PrivateRoute from './privateRoute';
 import { Login, Home, NotFound, Account } from 'view';
-import { LOGIN, HOME, ACCOUNT } from 'config';
+import { LOGIN, HOME, ACCOUNT } from 'common/config';
 /**
  * It has all routes and manages them
  */

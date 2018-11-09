@@ -11,8 +11,8 @@ import { replace } from 'react-router-redux';
  * From project *
  ****************/
 import BasisComponent from 'basisComponent';
-import { TXT_4 } from 'string';
-import { HOME } from 'config';
+import { TXT_4 } from 'common/string';
+import { HOME } from 'common/config';
 import { SIGN_IN } from 'common/actions';
 import actionBuilder from 'common/actionBuilder';
 

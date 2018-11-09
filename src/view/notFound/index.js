@@ -8,7 +8,7 @@ import Heading from 'grommet/components/Heading';
  * From project *
  ****************/
 import BasisComponent from 'basisComponent';
-import { TXT_1 } from 'string';
+import { TXT_1 } from 'common/string';
 /**
  * It renders the notFound component
  */

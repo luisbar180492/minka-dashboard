@@ -6,7 +6,7 @@ import { Route, Redirect } from 'react-router-dom';
 /****************
  * From project *
  ****************/
-import { LOGIN } from 'config';
+import { LOGIN } from 'common/config';
 
 class PrivateRoute extends Component {
 

@@ -8,7 +8,7 @@ import User from 'grommet/components/icons/base/User';
 /****************
  * From project *
  ****************/
-import { TXT_5 } from 'string';
+import { TXT_5 } from 'common/string';
 
 class DrawerHeader extends Component {
 

@@ -11,8 +11,8 @@ import { replace } from 'react-router-redux';
 /****************
  * From project *
  ****************/
-import { HOME, ACCOUNT } from 'config';
-import { TXT_6, TXT_7 } from 'string';
+import { HOME, ACCOUNT } from 'common/config';
+import { TXT_6, TXT_7 } from 'common/string';
 
 class DrawerBody extends Component {
 

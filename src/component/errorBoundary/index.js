@@ -15,8 +15,8 @@ import PropTypes from 'prop-types';
  ****************/
 import BasisComponent from 'basisComponent';
 import style from './style';
-import { TXT_2, TXT_3 } from 'string';
-import { HOME } from 'config';
+import { TXT_2, TXT_3 } from 'common/string';
+import { HOME } from 'common/config';
 /**
  * It catchs all errors
  */

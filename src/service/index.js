@@ -3,7 +3,7 @@
  ****************/
 import Requester from './requester';
 import Authentication from './authentication';
-import { URL, API_KEY } from 'config';
+import { URL, API_KEY } from 'common/config';
 /********************
  * From third party *
  ********************/
