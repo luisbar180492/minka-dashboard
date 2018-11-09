@@ -3,13 +3,13 @@
  ****************/
 import Requester from './requester';
 import Authentication from './authentication';
-import { URL } from 'config';
+import { URL, API_KEY } from 'config';
 /********************
  * From third party *
  ********************/
 const axios = require('axios');
 const firebase = require('firebase/app');
-require("firebase/auth");
+require('firebase/auth');
 /*************
  * Constants *
  *************/
@@ -28,6 +28,7 @@ const authentication = new Authentication(firebase.auth());
 const requester = new Requester(axios.create({
   baseURL: URL,
   timeout: 10000,
+  API_KEY: API_KEY,
 }));
 
 export {

@@ -10,8 +10,8 @@ import { withRouter } from 'react-router';
  ****************/
 import BasisComponent from 'basisComponent';
 import PrivateRoute from 'privateRoute';
-import { Login, Home, NotFound } from 'view';
-import { LOGIN, HOME } from 'config';
+import { Login, Home, NotFound, Account } from 'view';
+import { LOGIN, HOME, ACCOUNT } from 'config';
 /**
  * It has all routes and manages them
  */
@@ -23,10 +23,18 @@ class Router extends BasisComponent {
     return (
       checked &&
       <Switch location={location}>
+        <PrivateRoute exact path={ACCOUNT} component={this.renderAccount} authenticated={authenticated}/>
         <PrivateRoute exact path={HOME} component={this.renderHome} authenticated={authenticated}/>
         <Route exact path={LOGIN} component={this.renderLogin}/>
         <Route component={this.renderNotFound}/>
       </Switch>
+    );
+  }
+
+  renderAccount = () => {
+
+    return (
+      <Account/>
     );
   }
 

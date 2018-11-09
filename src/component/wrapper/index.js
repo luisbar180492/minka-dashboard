@@ -10,7 +10,8 @@ import PropTypes from 'prop-types';
  ****************/
 import BasisComponent from 'basisComponent';
 import Router from 'router';
-import { ErrorBoundary, TransitionAnimator } from 'component';
+import { ErrorBoundary, TransitionAnimator, Drawer } from 'component';
+import { HOME, ACCOUNT } from 'config';
 /**
  * Wrapper for whole the app
  */
@@ -28,12 +29,31 @@ class Wrapper extends BasisComponent {
             <Box
               full={true}
               colorIndex={'neutral-1'}>
-              <Router
-                location={this.props.location}/>
+              {this.renderRouter()}
+              {this.renderDrawer()}
             </Box>
           </TransitionAnimator>
         </ErrorBoundary>
       </App>
+    );
+  }
+
+  renderDrawer() {
+
+    return (
+      this.props.location.pathname === HOME ||
+      this.props.location.pathname === ACCOUNT
+      ? <Drawer
+          pathname={this.props.location.pathname}/>
+      : null
+    );
+  }
+
+  renderRouter() {
+
+    return (
+      <Router
+        location={this.props.location}/>
     );
   }
 }

@@ -6,11 +6,13 @@ import Box from 'grommet/components/Box';
 import LoginForm from 'grommet/components/LoginForm';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { replace } from 'react-router-redux';
 /****************
  * From project *
  ****************/
 import BasisComponent from 'basisComponent';
 import { TXT_4 } from 'string';
+import { HOME } from 'config';
 import { SIGN_IN } from 'common/actions';
 import actionBuilder from 'common/actionBuilder';
 
@@ -18,6 +20,11 @@ class Login extends BasisComponent {
 
   onSubmit = (data) => {
     this.props.signIn(data.username, data.password);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.wasASuccess)
+      this.props.goToHome();
   }
 
   render() {
@@ -39,6 +46,12 @@ class Login extends BasisComponent {
 }
 
 const mapStateToProps = (state) => ({
+  wasASuccess: state
+    .rootReducer
+    .stateReducer
+    .signInReducer
+    .status
+    .wasASuccess,
   errorMessage: state
     .rootReducer
     .stateReducer
@@ -50,6 +63,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
   signIn: (email, password) => dispatch(actionBuilder(SIGN_IN, { email, password })),
+  goToHome: () => dispatch(replace(HOME)),
 });
 
 export default withRouter(connect(

@@ -3,9 +3,12 @@ const WILL_SIGN_IN = 'WILL_SIGN_IN';
 const SIGNING_IN = 'SIGNING_IN';
 const DID_SIGN_IN = 'DID_SIGN_IN';
 
+const SIGN_OUT = 'SIGN_OUT';
+
 export {
   SIGN_IN,
   WILL_SIGN_IN,
   SIGNING_IN,
   DID_SIGN_IN,
+  SIGN_OUT,
 };
