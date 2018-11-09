@@ -22,7 +22,7 @@ class TransitionAnimator extends BasisComponent {
         <CSSTransition
           key={this.props.transitionKey}
           classNames={'fade'}
-          timeout={1000}>
+          timeout={300}>
           {this.props.children}
         </CSSTransition>
       </TransitionGroup>

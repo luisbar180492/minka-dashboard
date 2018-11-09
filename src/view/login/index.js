@@ -4,6 +4,7 @@
 import React from 'react';
 import Box from 'grommet/components/Box';
 import LoginForm from 'grommet/components/LoginForm';
+import Spinning from 'grommet/components/icons/Spinning';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { replace } from 'react-router-redux';
@@ -28,7 +29,7 @@ class Login extends BasisComponent {
   }
 
   render() {
-    const { errorMessage } = this.props;
+    const { errorMessage, isRunning } = this.props;
 
     return (
       <Box
@@ -39,7 +40,8 @@ class Login extends BasisComponent {
         <LoginForm
           title={TXT_4.toUpperCase()}
           onSubmit={this.onSubmit}
-          errors={[errorMessage]}/>
+          errors={[errorMessage]}
+          logo={isRunning && <Spinning/>}/>
       </Box>
     );
   }
@@ -59,6 +61,13 @@ const mapStateToProps = (state) => ({
     .status
     .error
     .errorMessage,
+  isRunning: state
+    .rootReducer
+    .stateReducer
+    .signInReducer
+    .status
+    .error
+    .isRunning,
 });
 
 const mapDispatchToProps = dispatch => ({
