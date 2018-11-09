@@ -4,22 +4,12 @@ export default class Requester {
     this.fetch = fetch;
   }
 
-  get(url) {
-    return this.fetch.get(url)
-    .then(this.errorHandler)
-    .then((data) => data)
-    .catch((error) => error);
-  }
-
-  errorHandler(response) {
-
-    switch (response.status) {
-
-      case 200:
-        return response.data;
-
-      default:
-        return response;
+  async makeRequest(url, params, method = 'GET', data) {
+    try {
+      const response = await this.fetch({ url, params, method, data });
+      return response.data;
+    } catch (error) {
+      throw error;
     }
   }
 }

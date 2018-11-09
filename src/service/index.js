@@ -2,17 +2,35 @@
  * From project *
  ****************/
 import Requester from './requester';
-import { URL_PLUS_VERSION } from '../config';
+import Authentication from './authentication';
+import { URL } from 'config';
 /********************
  * From third party *
  ********************/
 const axios = require('axios');
+const firebase = require('firebase/app');
+require("firebase/auth");
+/*************
+ * Constants *
+ *************/
+const config = {
+  apiKey: 'AIzaSyDLyhWzvV9EM5-bw4JMQv2EuXyvUy-oJt8',
+  authDomain: 'minka-dashboard.firebaseapp.com',
+  databaseURL: 'https://minka-dashboard.firebaseio.com',
+  projectId: 'minka-dashboard',
+  storageBucket: '',
+  messagingSenderId: '413807761313'
+};
 
+firebase.initializeApp(config);
+
+const authentication = new Authentication(firebase.auth());
 const requester = new Requester(axios.create({
-  baseURL: URL_PLUS_VERSION,
-  timeout: 1000,
+  baseURL: URL,
+  timeout: 10000,
 }));
 
 export {
   requester,
+  authentication,
 };

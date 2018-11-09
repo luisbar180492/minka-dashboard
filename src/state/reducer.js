@@ -5,8 +5,8 @@ import { combineReducers } from 'redux';
 /****************
  * From project *
  ****************/
-import fetchPokemonsReducer from './fetchPokemons/reducer';
+import signInReducer from './signIn/reducer';
 
 export default combineReducers({
-  fetchPokemonsReducer,
+  signInReducer,
 });

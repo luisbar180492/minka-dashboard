@@ -5,10 +5,10 @@ import { all } from 'redux-saga/effects';
 /****************
  * From project *
  ****************/
-import fetchPokemons from './fetchPokemons/saga';
+import signInSaga from './signIn/saga';
 
 export default function* root() {
   yield all([
-    fetchPokemons()
+    signInSaga()
   ]);
 };

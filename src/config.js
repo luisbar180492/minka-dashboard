@@ -3,14 +3,14 @@ const LOGIN = '/login';
 const HOME = '/';
 
 //Endpoints
-const URL = 'https://pokeapi.co/api/';
-const VERSION = 'v2';
-const URL_PLUS_VERSION = `${URL}${VERSION}`;
-const POKEMON_URI = '/pokemon/';
+const URL = 'https://achtin-tst.minka.io/v1/'
+const ACTION_URI = 'action';
+const WALLET_URI = 'wallet';
 
 export {
   LOGIN,
   HOME,
-  URL_PLUS_VERSION,
-  POKEMON_URI,
+  URL,
+  ACTION_URI,
+  WALLET_URI,
 };

@@ -3,15 +3,25 @@
  ********************/
 import React from 'react';
 import Box from 'grommet/components/Box';
-import Heading from 'grommet/components/Heading';
+import LoginForm from 'grommet/components/LoginForm';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 /****************
  * From project *
  ****************/
 import BasisComponent from 'basisComponent';
+import { TXT_4 } from 'string';
+import { SIGN_IN } from 'common/actions';
+import actionBuilder from 'common/actionBuilder';
 
 class Login extends BasisComponent {
 
+  onSubmit = (data) => {
+    this.props.signIn(data.username, data.password);
+  }
+
   render() {
+    const { errorMessage } = this.props;
 
     return (
       <Box
@@ -19,14 +29,30 @@ class Login extends BasisComponent {
         justify={'center'}
         align={'center'}>
 
-        <Heading
-          align={'center'}
-          truncate={true}>
-          {'LOGIN'}
-        </Heading>
+        <LoginForm
+          title={TXT_4.toUpperCase()}
+          onSubmit={this.onSubmit}
+          errors={[errorMessage]}/>
       </Box>
     );
   }
 }
 
-export default Login;
+const mapStateToProps = (state) => ({
+  errorMessage: state
+    .rootReducer
+    .stateReducer
+    .signInReducer
+    .status
+    .error
+    .errorMessage,
+});
+
+const mapDispatchToProps = dispatch => ({
+  signIn: (email, password) => dispatch(actionBuilder(SIGN_IN, { email, password })),
+});
+
+export default withRouter(connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Login));

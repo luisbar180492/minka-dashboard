@@ -15,7 +15,7 @@ import PropTypes from 'prop-types';
  ****************/
 import BasisComponent from 'basisComponent';
 import style from './style';
-import { TXT_4, TXT_5 } from 'string';
+import { TXT_2, TXT_3 } from 'string';
 import { HOME } from 'config';
 /**
  * It catchs all errors
@@ -66,7 +66,7 @@ class ErrorBoundary extends BasisComponent {
       <Heading
         tag={'h3'}
         align={'center'}>
-        {TXT_4}
+        {TXT_2}
       </Heading>
     );
   }
@@ -77,7 +77,7 @@ class ErrorBoundary extends BasisComponent {
       <Accordion
         style={style.accordion}>
         <AccordionPanel
-          heading={TXT_5}>
+          heading={TXT_3}>
           <Paragraph
             style={style.paragraph}>
             {this.state.error.toString()}
