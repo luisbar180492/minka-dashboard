@@ -14,6 +14,10 @@ const TXT_6 = 'Acciones';
 const TXT_7 = 'Cuentas';
 const TXT_8 = 'Salir';
 
+//Wrapper
+const TXT_9 = 'Acciones';
+const TXT_10 = 'Cuentas';
+
 export {
   TXT_1,
   TXT_2,
@@ -23,4 +27,6 @@ export {
   TXT_6,
   TXT_7,
   TXT_8,
+  TXT_9,
+  TXT_10,
 };
