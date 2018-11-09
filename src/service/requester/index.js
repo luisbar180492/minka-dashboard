@@ -1,5 +1,5 @@
 import { ACTION_URI, WALLET_URI } from 'common/config';
-import { mapActions } from './mapper';
+import { mapActions, mapAccounts } from './mapper';
 
 export default class Requester {
 
@@ -21,5 +21,12 @@ export default class Requester {
     actions = mapActions(actions);
 
     return { actions };
+  }
+
+  async fetchAccounts() {
+    let accounts = await this.makeRequest(WALLET_URI);
+    accounts = mapAccounts(accounts);
+
+    return { accounts };
   }
 }

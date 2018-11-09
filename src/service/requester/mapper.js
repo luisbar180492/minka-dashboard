@@ -7,3 +7,13 @@ export const mapActions = ({ entities }) => (
     }
   ))
 );
+
+export const mapAccounts = (accounts) => (
+
+  accounts.map((item) => (
+    {
+      id: item.id,
+      name: item.labels.name || 'no hay nombre',
+    }
+  ))
+);

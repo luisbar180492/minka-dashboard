@@ -19,6 +19,7 @@ import style from './style';
 class Home extends BasisComponent {
 
   componentDidMount() {
+    super.componentDidMount();
     this.props.fetchActions();
   }
 
@@ -55,7 +56,7 @@ class Home extends BasisComponent {
         rowHeight={53}
         rowCount={this.props.actions.length}
         rowGetter={this.renderData}>
-        {!!this.props.actions.length && ['id', 'nombre'].map(this.renderColumn)}
+        {!!this.props.actions.length && ['id', 'descripción'].map(this.renderColumn)}
       </Table>
     );
   }
