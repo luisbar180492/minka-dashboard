@@ -18,6 +18,15 @@ import { SIGN_OUT } from 'common/actions';
 
 class DrawerFooter extends Component {
 
+  onSignOutClicked = () => {
+    this.props.signOut();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.wasASuccess)
+      this.props.goToLogin();
+  }
+
   render() {
 
     return (
@@ -41,18 +50,19 @@ class DrawerFooter extends Component {
       </Box>
     );
   }
-
-  onSignOutClicked = () => {
-    this.props.signOut();
-  }
 }
 
 const mapStateToProps = state => ({
-  state: state,
+  wasASuccess: state
+    .rootReducer
+    .stateReducer
+    .signOutReducer
+    .status
+    .wasASuccess,
 });
 
 const mapDispatchToProps = dispatch => ({
-  goLogin: () => dispatch(replace(LOGIN)),
+  goToLogin: () => dispatch(replace(LOGIN)),
   signOut: () => dispatch(actionBuilder(SIGN_OUT)),
 });
 
