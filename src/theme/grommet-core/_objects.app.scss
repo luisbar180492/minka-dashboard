@@ -34,4 +34,20 @@
     z-index: -1;
     position: fixed;
   }
+
+  ::-webkit-scrollbar {
+    background-color: transparent;
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: 1px solid $brand-color;
+    background-color: $brand-color;
+    max-width: 5px;
+  }
+
+  *:focus {
+   outline: 0;
+   box-shadow: 0 0 0 0;
+  }
 }

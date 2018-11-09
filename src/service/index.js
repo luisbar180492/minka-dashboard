@@ -28,7 +28,9 @@ const authentication = new Authentication(firebase.auth());
 const requester = new Requester(axios.create({
   baseURL: URL,
   timeout: 10000,
-  API_KEY: API_KEY,
+  headers: {
+    API_KEY: API_KEY,
+  }
 }));
 
 export {
